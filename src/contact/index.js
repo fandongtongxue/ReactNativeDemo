@@ -1,21 +1,34 @@
-import React from 'react';
-import {AppRegistry, StyleSheet, Text, View} from 'react-native';
+import React, {useState} from 'react';
+import {AppRegistry, StyleSheet, View, ActivityIndicator, Button, Alert, Image, Switch, Text, TextInput, SafeAreaView, ScrollView} from 'react-native';
 
-class RNHighScores extends React.Component {
+class UIDemo extends React.Component {
+
   render() {
-    var contents = this.props['scores'].map(score => (
-      <Text key={score.name}>
-        {score.name}:{score.value}
-        {'\n'}
-      </Text>
-    ));
     return (
-      <View style={styles.container}>
-        <Text style={styles.highScoresTitle}>
-          2048 High Scores!
-        </Text>
-        <Text style={styles.scores}>{contents}</Text>
+
+        <ScrollView>
+          <View style={[styles.container, styles.vertical]}>
+        <ActivityIndicator />
+        <ActivityIndicator size="large" />
+        <ActivityIndicator color="red" />
+        <ActivityIndicator size="large" color="red" />
+
+        <Button
+        title="Press me"
+        color="red"
+        onPress={() => Alert.alert('Simple Button pressed')}/>
+
+      <Image
+        style={styles.tinyLogo}
+        source={{
+          uri: 'https://reactnative.dev/img/tiny_logo.png',
+        }}
+      />
+      <Switch/>
+      <Text>Hello, World!</Text>
+      <TextInput style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}></TextInput>
       </View>
+        </ScrollView>
     );
   }
 }
@@ -23,21 +36,18 @@ class RNHighScores extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    justifyContent: "center"
   },
-  highScoresTitle: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  vertical: {
+    flexDirection: "column",
+    justifyContent: "space-around",
+    padding: 10
   },
-  scores: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  tinyLogo: {
+    width: 50,
+    height: 50,
   },
 });
 
 // 整体js模块的名称
-AppRegistry.registerComponent('RNHighScores', () => RNHighScores);
+AppRegistry.registerComponent('UIDemo', () => UIDemo);
