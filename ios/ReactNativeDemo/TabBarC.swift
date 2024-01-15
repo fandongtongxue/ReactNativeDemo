@@ -19,14 +19,13 @@ class TabBarC: UITabBarController {
         homeNav.tabBarItem = UITabBarItem(tabBarSystemItem: .recents, tag: 0)
         
         let contactVc = ContactVC()
-        let contactNav = UINavigationController(rootViewController: contactVc)
-        contactNav.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 1)
+        contactVc.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 1)
         
         let mineVc = UIViewController()
         mineVc.view.backgroundColor = .systemBackground
         let mineNav = UINavigationController(rootViewController: mineVc)
         mineNav.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 2)
-        viewControllers = [homeNav, contactNav, mineNav]
+        viewControllers = [homeNav, contactVc, mineNav]
     }
     
 

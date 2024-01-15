@@ -3,7 +3,7 @@ import { AppRegistry, StyleSheet, View, ActivityIndicator, Button, Alert, Image,
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-class UIDemo extends React.Component {
+class Contact extends React.Component {
 
   render() {
     return (
@@ -11,6 +11,7 @@ class UIDemo extends React.Component {
         <Stack.Navigator>
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Details" component={DetailsScreen} />
+          <Stack.Screen name="DetailsContent" component={DetailsContent} />
         </Stack.Navigator>
       </NavigationContainer>
     );
@@ -19,12 +20,23 @@ class UIDemo extends React.Component {
 
 const Stack = createNativeStackNavigator();
 
-function DetailsScreen(route, navigation) {
-  const { itemId, otherParam } = route.params;
+function DetailsScreen(navigation) {
+  // const { itemId, otherParam } = route.params;
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Details Screen</Text>
-      <Text>itemId: {JSON.stringify(itemId)}</Text><Text>otherParam: {JSON.stringify(otherParam)}</Text>
+      <Button title='Details Content' onPress={() => navigation.push('DetailsContent')}></Button>
+      {/* <Text>itemId: {JSON.stringify(itemId)}</Text><Text>otherParam: {JSON.stringify(otherParam)}</Text> */}
+    </View>
+  );
+}
+
+function DetailsContent(navigation) {
+  // const { itemId, otherParam } = route.params;
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Details Content</Text>
+      {/* <Text>itemId: {JSON.stringify(itemId)}</Text><Text>otherParam: {JSON.stringify(otherParam)}</Text> */}
     </View>
   );
 }
@@ -77,4 +89,4 @@ const styles = StyleSheet.create({
 });
 
 // 整体js模块的名称
-AppRegistry.registerComponent('UIDemo', () => UIDemo);
+AppRegistry.registerComponent('Contact', () => Contact);

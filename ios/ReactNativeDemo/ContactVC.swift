@@ -13,7 +13,7 @@ class ContactVC: UIViewController {
     override func loadView() {
         let jsCodeLocation = URL(string: "http://localhost:8081/index.bundle?platform=ios")!
         let mockData = ["scores":[["name":"Alex", "value":"42"],["name":"Joel", "value": "10"]]]
-        let rootView = RCTRootView(bundleURL: jsCodeLocation, moduleName: "UIDemo", initialProperties: mockData)
+        let rootView = RCTRootView(bundleURL: jsCodeLocation, moduleName: "Contact", initialProperties: mockData)
         view = rootView
     }
 
