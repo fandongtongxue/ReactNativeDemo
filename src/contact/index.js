@@ -19,10 +19,12 @@ class UIDemo extends React.Component {
 
 const Stack = createNativeStackNavigator();
 
-function DetailsScreen() {
+function DetailsScreen(route, navigation) {
+  const { itemId, otherParam } = route.params;
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Details Screen</Text>
+      <Text>itemId: {JSON.stringify(itemId)}</Text><Text>otherParam: {JSON.stringify(otherParam)}</Text>
     </View>
   );
 }
@@ -39,7 +41,10 @@ function HomeScreen({navigation}) {
         <Button
           title="Details Screen"
           color="red"
-          onPress={() => navigation.navigate('Details')} />
+          onPress={() => navigation.navigate('Details', {
+            itemId: 86,
+            otherParam: 'anything you want here',
+          })} />
 
         <Image
           style={styles.tinyLogo}
