@@ -27,7 +27,7 @@ function DetailsScreen() {
   );
 }
 
-function HomeScreen() {
+function HomeScreen({navigation}) {
   return (
     <ScrollView>
       <View style={[styles.container, styles.vertical]}>
@@ -37,9 +37,9 @@ function HomeScreen() {
         <ActivityIndicator size="large" color="red" />
 
         <Button
-          title="Press me"
+          title="Details Screen"
           color="red"
-          onPress={() => Alert.alert('Simple Button pressed')} />
+          onPress={() => navigation.navigate('Details')} />
 
         <Image
           style={styles.tinyLogo}
